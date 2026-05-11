@@ -1,7 +1,12 @@
-/* Робимо хедер контейнером для флексів */
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif; /* Використовуємо шрифт Roboto */ /* Світло-сірий фон для контрасту з логотипом */
+}
+
 .container {
   display: flex;
   align-items: center; /* Центруємо по вертикалі */
+  justify-content: space-between; /* Розподіляємо простір між логотипом і меню */
   padding: 10px 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -25,21 +30,21 @@
   width: 20px;
   height: 20px;
   color: #fff; /* Білий колір літер */
-  font-family: futura, sans-serif; /* Шрифт без засічок, як на лого */
+  font-family: Arial, Helvetica, sans-serif; /* Шрифт без засічок, як на лого */
   font-weight: 700; /* Жирний текст */
   font-size: 19px; /* Розмір літер */
   user-select: none;
   text-align: center; /* Вирівнюємо текст по центру */
   text-transform: uppercase;
-  padding-top: 1px;
-  line-height: 0.5px; /* Відрегулюйте це значення, щоб літери були точно по центру вертикально */
+
+  padding-block: 0.5; /* Відрегулюйте це значення, щоб літери були точно по центру вертикально */
 }
 
 /* Прибираємо крапки біля списку і вибудовуємо в рядок */
 .nav-list {
   display: flex;
   list-style: none;
-  gap: 12px;
+  gap: 15px;
   margin: 0;
   padding: 0;
   font-family: futura, sans-serif;
@@ -50,13 +55,14 @@
 }
 
 .bg-black {
-  line-height: 0.5px;
   background-color: #000;
 }
 
 /* Стилізуємо посилання */
 .nav-link {
   /* Для позиціонування псевдоелемента */
+  display: inline-block;
+  position: relative;
   text-decoration: none; /* Прибираємо підкреслення */
   color: #333;
   font-family: Arial, sans-serif;
@@ -64,17 +70,27 @@
   transition: color 0.3s;
   font-weight: 700;
   text-transform: uppercase;
+  padding-top: 25px; /* Відстань між текстом і краями посилання */
 }
 
-.nav-link.active {
-  border-bottom: 4px solid #00aeef; /* Відстань від тексту до лінії */
-  padding-bottom: 18px; /* Відстань між текстом і лінією */
-  color: #00aeef; /* Колір активного посилання */
+.nav-link::after {
+  content: ''; /* Обов'язково! */
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #00aeef;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-html,
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+/* Показуємо лінію при наведенні (Hover) */
+.nav-link:hover::after {
+  opacity: 1;
+}
+
+/* Показуємо лінію для активного пункту (is-active) */
+.nav-link.is-active::after {
+  opacity: 1;
 }
