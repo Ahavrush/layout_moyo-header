@@ -1,3 +1,80 @@
-body {
+/* Робимо хедер контейнером для флексів */
+.container {
+  display: flex;
+  align-items: center; /* Центруємо по вертикалі */
+  padding: 10px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.moyo-logo {
+  display: grid;
+  grid-template-columns: 20px 20px; /* Загальна ширина 48px */
+  grid-template-rows: 20px 20px; /* Загальна висота 48px */
+  gap: 0; /* Жодних проміжків між квадратами */
+  margin-right: 250px; /* ВІДСТУП, щоб меню не налізало на лого */
+  flex-shrink: 0; /* Відступ від лого до меню */
+  margin-left: 20px; /* Відступ зліва від лого */
+}
+
+/* Логотип: задаємо розмір */
+.cell {
+  display: flex;
+  justify-content: center; /* Центруємо вміст по горизонталі */
+  align-items: center; /* Центруємо вміст по вертикалі */
+  width: 20px;
+  height: 20px;
+  color: #fff; /* Білий колір літер */
+  font-family: futura, sans-serif; /* Шрифт без засічок, як на лого */
+  font-weight: 700; /* Жирний текст */
+  font-size: 19px; /* Розмір літер */
+  user-select: none;
+  text-align: center; /* Вирівнюємо текст по центру */
+  text-transform: uppercase;
+  padding-top: 1px;
+  line-height: 0.5px; /* Відрегулюйте це значення, щоб літери були точно по центру вертикально */
+}
+
+/* Прибираємо крапки біля списку і вибудовуємо в рядок */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 12px;
   margin: 0;
+  padding: 0;
+  font-family: futura, sans-serif;
+}
+
+.bg-cyan {
+  background-color: #00aeef;
+}
+
+.bg-black {
+  line-height: 0.5px;
+  background-color: #000;
+}
+
+/* Стилізуємо посилання */
+.nav-link {
+  /* Для позиціонування псевдоелемента */
+  text-decoration: none; /* Прибираємо підкреслення */
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  transition: color 0.3s;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.nav-link.active {
+  border-bottom: 4px solid #00aeef; /* Відстань від тексту до лінії */
+  padding-bottom: 18px; /* Відстань між текстом і лінією */
+  color: #00aeef; /* Колір активного посилання */
+}
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
