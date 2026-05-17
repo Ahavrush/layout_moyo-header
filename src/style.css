@@ -1,96 +1,78 @@
 body {
   margin: 0;
-  font-family: Roboto, sans-serif; /* Використовуємо шрифт Roboto */ /* Світло-сірий фон для контрасту з логотипом */
+  padding: 0;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.header {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .container {
-  display: flex;
-  align-items: center; /* Центруємо по вертикалі */
-  justify-content: space-between; /* Розподіляємо простір між логотипом і меню */
-  padding: 10px 20px;
+  box-sizing: border-box;
   max-width: 1200px;
-  margin: 0 auto;
-}
-
-.moyo-logo {
-  display: grid;
-  grid-template-columns: 20px 20px; /* Загальна ширина 48px */
-  grid-template-rows: 20px 20px; /* Загальна висота 48px */
-  gap: 0; /* Жодних проміжків між квадратами */
-  margin-right: 250px; /* ВІДСТУП, щоб меню не налізало на лого */
-  flex-shrink: 0; /* Відступ від лого до меню */
-  margin-left: 20px; /* Відступ зліва від лого */
-}
-
-/* Логотип: задаємо розмір */
-.cell {
+  margin: 0;
+  padding: 0 50px;
   display: flex;
-  justify-content: center; /* Центруємо вміст по горизонталі */
-  align-items: center; /* Центруємо вміст по вертикалі */
-  width: 20px;
-  height: 20px;
-  color: #fff; /* Білий колір літер */
-  font-family: Arial, Helvetica, sans-serif; /* Шрифт без засічок, як на лого */
-  font-weight: 700; /* Жирний текст */
-  font-size: 19px; /* Розмір літер */
-  user-select: none;
-  text-align: center; /* Вирівнюємо текст по центру */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  color: rgba(0, 0, 0, 1);
+  text-decoration: none;
   text-transform: uppercase;
-
-  padding-block: 0.5; /* Відрегулюйте це значення, щоб літери були точно по центру вертикально */
+  position: relative;
 }
 
-/* Прибираємо крапки біля списку і вибудовуємо в рядок */
-.nav-list {
+.nav__link:hover {
+  color: var(--main-blue);
+}
+
+.nav__link.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: var(--main-blue);
+}
+
+:root {
+  --main-blue: rgba(0, 172, 220, 1);
+}
+
+.nav__list {
   display: flex;
+  align-items: center;
   list-style: none;
-  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__list .nav__item {
+  margin-left: 20px;
+}
+
+.nav__list .nav__item:first-child {
+  margin-left: 0;
+}
+
+.nav__link.is-active {
+  color: var(--main-blue);
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
   margin: 0;
   padding: 0;
-  font-family: futura, sans-serif;
-}
-
-.bg-cyan {
-  background-color: #00aeef;
-}
-
-.bg-black {
-  background-color: #000;
-}
-
-/* Стилізуємо посилання */
-.nav-link {
-  /* Для позиціонування псевдоелемента */
-  display: inline-block;
-  position: relative;
-  text-decoration: none; /* Прибираємо підкреслення */
-  color: #333;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  transition: color 0.3s;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding-top: 25px; /* Відстань між текстом і краями посилання */
-}
-
-.nav-link::after {
-  content: ''; /* Обов'язково! */
-  position: absolute;
-  bottom: 5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #00aeef;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* Показуємо лінію при наведенні (Hover) */
-.nav-link:hover::after {
-  opacity: 1;
-}
-
-/* Показуємо лінію для активного пункту (is-active) */
-.nav-link.is-active::after {
-  opacity: 1;
 }
